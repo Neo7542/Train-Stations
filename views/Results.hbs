@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Train details : {{train}}</title>
+    <link rel="stylesheet" href="/css/results.css">
+  </head>
+  <body>
+    <p>You are viewing results for : {{train}}</p>
+    <table>
+      <caption><h3>{{name}}</h3></caption>
+      <tr>
+        <!-- <th>Station no.</th> -->
+        <th>Stations</th>
+        <th>Scheduled arrival </th>
+        <th>Scheduled departure</th>
+        <th>Day</th>
+      </tr>
+      {{#each data}}
+      <tr>
+        <td>{{this.station}}</td>
+        <td>{{this.arrival}}</td>
+        <td>{{this.departure}}</td>
+        <td>{{this.day}}</td>
+      </tr>
+      {{/each}}
+    </table>
+    {{#each stations}}
+    <tr>this</tr>
+    {{/each}}
+
+  </body>
+</html>
