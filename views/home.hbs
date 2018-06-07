@@ -3,11 +3,29 @@
   <head>
     <meta charset="utf-8">
     <title>Get train info</title>
+    <link rel="stylesheet" href="/css/results.css">
   </head>
   <body>
-    <form class="" action="/" method="post">
-      <input type="text" name="trainno" value="" placeholder="Enter train no."/>
-      <button type="submit"> Search </button>
-    </form>
+    <div id="block" >
+      <div id="form">
+      <form id="form-train" action="/" method="post">
+        <input type="text" name="trainno" value="" id="trainno" placeholder="Enter train no."/>
+        <button type="submit"> Search </button>
+      </form>
+    </div>
+    <div class="heading">
+      <h3></h3>
+    </div>
+      <div id="train-data">
+
+        <table>
+        </table>
+      </div>
+    </div>
+    <br></br>
+    <br/>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/results.js"></script>
+
   </body>
 </html>

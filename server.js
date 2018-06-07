@@ -6,7 +6,8 @@ const request = require('request');
 
 var app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine' , 'hbs');
@@ -23,22 +24,21 @@ app.post('/',(req , res)=>{
   json : true
 } , (error, response, body)=> {
   var data=[];
-//  console.log('error:', error); // Print the error if one occurred
-//  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  // console.log(JSON.stringify(body.train.name , undefined , 2));
-  // console.log(JSON.stringify(body.route[0].station.name , undefined , 2));
-  // console.log(Array.isArray(body.route));
-  for(i=0;i<body.route.length;i++)
+  if(error)
   {
-    //stations.push(body.route[i].station.name);
-
-    data.push({station: body.route[i].station.name , arrival : body.route[i].scharr , departure : body.route[i].schdep, day : body.route[i].day}  )
+    res.send({data : data , name : "Internal Server Error"});
   }
-  res.render('Results.hbs' , {
-  data : data ,
-  train : trainno ,
-  name : body.train.name
-  });
+  else if(body.response_code === 404)
+  {
+    res.send({data : data , name : "Train not found"});
+  }
+  else {
+    for(i=0;i<body.route.length;i++)
+    {
+      data.push({station: body.route[i].station.name , arrival : body.route[i].scharr , departure : body.route[i].schdep, day : body.route[i].day}  )
+    }
+    res.send({data : data , name : body.train.name});
+  }
 });
 });
 

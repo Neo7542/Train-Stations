@@ -1,10 +1,62 @@
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 15px;
+th, td {
+    border-bottom: 1px solid #ddd;
+    color: black;
+    width: 250px;
+    height : 25px;
+    font-size: 15px;
+    text-align: center;
 }
 
+tr:nth-child(even) {background-color: #f2f2f2;}
 table{
-  margin-left: auto;
-  margin-right: auto;
+  position: absolute;
+  top : 210px;
+  left : 300px;
+  margin-bottom: 20px;
+}
+
+#form{
+  top:0px;
+  position: fixed;
+  width: 1350px;
+  height : 150px;
+  background-color: #906969;
+  border-bottom: 2px solid black;
+  z-index: 999;
+}
+h3{
+  position: fixed;
+  top : 135px;
+  left : 10px;
+  width : 1300px;
+  height: 30px;
+  text-align: center;
+  z-index: 1000;
+}
+input{
+  position: fixed;
+  top : 70px;
+  left : 350px;
+  border-radius: 10px;
+  width: 250px;
+  height: 35px;
+  z-index: 1000;
+  padding-left: 10px;
+}
+button{
+  position: fixed;
+  top : 70px;
+  left : 650px;
+  background-color: #c8b1b1;
+  width: 150px;
+  height: 35px;
+  text-align: center;
+  z-index: 1000;
+}
+#form{
+  border-radius: 15px;
+}
+
+button:hover{
+  box-shadow: 5px 5px black;
 }
